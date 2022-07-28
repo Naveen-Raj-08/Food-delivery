@@ -9,6 +9,8 @@ import { MiniCart } from "./MiniCart";
 export const Header = () => {
   const [ShowMiniCart, setShowMiniCart] = useState(null);
 
+  const location = window.location.pathname;
+
   useEffect(() => {
     if (ShowMiniCart) {
       document.body.classList.add("mini-cart-open");
@@ -35,14 +37,20 @@ export const Header = () => {
       </Col>
       <Col tag="div" md={6} className="align-items-cente desktop__menu r">
         <div className="d-flex justify-content-between align-items-center">
-          <div className="menu">
+          <div
+            className={
+              location === "/categories" ? "active-location menu" : "menu"
+            }
+          >
             <Link to="/categories">Menu</Link>
           </div>
           <div className="menu">
             <Link to="/">How It works</Link>
           </div>
-          <div className="menu">
-            <Link to="/">About</Link>
+          <div
+            className={location === "/about" ? "active-location menu" : "menu"}
+          >
+            <Link to="/about">About</Link>
           </div>
           <div className="menu">
             <Link to="/">FAQS</Link>

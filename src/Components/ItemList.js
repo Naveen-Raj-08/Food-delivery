@@ -29,26 +29,25 @@ export const ItemList = () => {
     <>
       <title>Category {location.state}</title>
 
-      <Container tag="div" fluid={true} className="home__page">
+      <Container tag="div" fluid={true} className="custom__container">
         <Row tag="div" className="page__header">
           <Header />
         </Row>
+        <div className="row list__items ">
+          <h1 className="page__title">Category {location.state}</h1>
+          {ListItems === undefined || ListItems === null ? (
+            <span className="spinner spinner-border"></span>
+          ) : (
+            ListItems.map((list, index) => {
+              return (
+                <div className="col-md-3">
+                  <List key={index} list={list} />
+                </div>
+              );
+            })
+          )}
+        </div>
       </Container>
-
-      <h1 className="page__title">Category {location.state}</h1>
-      <div className="row list__items">
-        {ListItems === undefined || ListItems === null ? (
-          <span className="spinner spinner-border"></span>
-        ) : (
-          ListItems.map((list) => {
-            return (
-              <div className="col-md-3">
-                <List key={list.idMeal} list={list} />
-              </div>
-            );
-          })
-        )}
-      </div>
     </>
   );
 };

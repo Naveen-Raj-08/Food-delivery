@@ -14,7 +14,7 @@ export const Homepage = () => {
 
       {/* Page components starts from here*/}
 
-      <Container tag="div" fluid={true} className="home__page">
+      <Container tag="div" fluid={true} className="custom__container">
         <Row tag="div" className="page__header">
           <Header />
         </Row>

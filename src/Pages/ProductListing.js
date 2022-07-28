@@ -23,24 +23,23 @@ export const ProductListing = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <title>Product Listing</title>
 
-      <Container tag="div" fluid={true} className="home__page">
+      <Container tag="div" fluid={true} className="custom__container">
         <Row tag="div" className="page__header">
           <Header />
         </Row>
+        <div className="category__list row mt-3 p-5">
+          {Categories === undefined || Categories === null ? (
+            <span className="spinner spinner-border"></span>
+          ) : (
+            Categories.map((category, index) => {
+              return <Category key={index} categories={category} />;
+            })
+          )}
+        </div>
       </Container>
-
-      <div className="category__list row mt-3 p-5">
-        {Categories === undefined || Categories === null ? (
-          <span className="spinner spinner-border"></span>
-        ) : (
-          Categories.map((category, index) => {
-            return <Category key={index} categories={category} />;
-          })
-        )}
-      </div>
-    </>
+    </div>
   );
 };
