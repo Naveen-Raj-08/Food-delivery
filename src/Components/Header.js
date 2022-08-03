@@ -5,10 +5,12 @@ import { Col } from "reactstrap";
 import { FiShoppingCart, FiSearch, FiUser } from "react-icons/fi";
 import Logo from "../assets/Media/Logo.png";
 import { MiniCart } from "./MiniCart";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
   const [ShowMiniCart, setShowMiniCart] = useState(null);
-
+  const [cartCount, setCartCount] = useState(null);
+  const state = useSelector((state) => state);
   const location = window.location.pathname;
 
   useEffect(() => {
@@ -21,6 +23,10 @@ export const Header = () => {
       }
     };
   }, [ShowMiniCart]);
+
+  setTimeout(() => {
+    setCartCount(state.length);
+  }, 1400);
 
   const showMiniCart = () => {
     setShowMiniCart(!ShowMiniCart);
@@ -75,6 +81,13 @@ export const Header = () => {
           </IconButton>
         </div>
         <div className="icon">
+          <div className="cart__count-wrap">
+            {cartCount === undefined || cartCount === null ? (
+              <span className="spinner-border spinner-border-sm custom__loading"></span>
+            ) : (
+              <span className="cart__count">{cartCount}</span>
+            )}
+          </div>
           <IconButton aria-label="mini-cart" onClick={showMiniCart}>
             <FiShoppingCart />
           </IconButton>

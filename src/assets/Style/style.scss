@@ -17,7 +17,7 @@ $regular: 400;
 $semi-bold: 600;
 $bold: 700;
 $extra-bold: 800;
-
+$cartCount: 20px;
 html body {
   padding: 0;
   margin: 0;
@@ -27,7 +27,6 @@ html body {
   font-family: "Nunito", sans-serif;
   font-weight: $regular;
   overflow-x: hidden;
-  min-height: 1920px;
 }
 .custom__container {
   max-width: 1440px;
@@ -107,6 +106,35 @@ html body {
       svg {
         color: $black-color;
       }
+    }
+    .cart__count-wrap {
+      position: relative;
+    }
+    .custom__loading {
+      width: 15px;
+      height: 15px;
+      border-width: 2px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .cart__count {
+      position: absolute;
+      right: 0;
+      top: -5px;
+      background-color: rgb(217, 48, 18);
+      min-height: $cartCount;
+      min-height: $cartCount;
+      max-height: $cartCount;
+      max-width: $cartCount;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $white-color;
     }
     .minicart__overlay {
       position: fixed;
